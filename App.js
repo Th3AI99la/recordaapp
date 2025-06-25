@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler'; // Certifique-se de que esta linha esteja no topo
 import React from 'react';
 import { PaperProvider } from 'react-native-paper';
-import AppNavigator from './app/AppNavigator'; // Updated path
+import AppNavigator from './src/AppNavigator';
 import colors from './styles/colors';
 
 export default function App() {
