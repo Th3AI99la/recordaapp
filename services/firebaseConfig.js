@@ -1,9 +1,10 @@
 // services/firebaseConfig.js
-// Configurações do Firebase - substitua com suas próprias credenciais
 import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
+import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
+import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyCx446zCuLCEkctM9cc8Pp1fY3lg2v425c",
@@ -17,7 +18,12 @@ const firebaseConfig = {
 
 // Inicializa o Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+
+// INICIALIZAÇÃO CORRETA DO AUTH
+const auth = initializeAuth(app, {
+  persistence: getReactNativePersistence(ReactNativeAsyncStorage)
+});
+
 const db = getFirestore(app);
 const storage = getStorage(app);
 
