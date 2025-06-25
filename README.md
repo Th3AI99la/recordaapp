@@ -12,40 +12,6 @@
 *   **Navegação Intuitiva:** Utiliza React Navigation para uma experiência de usuário fluida.
 *   **Sistema de Design:** Interface padronizada com React Native Paper, garantindo responsividade e usabilidade.
 
-## Estrutura do Projeto
-
-```
-.recorda/
-├── assets/                 # Imagens, ícones, fontes
-│   ├── fonts/
-│   └── images/
-├── components/             # Componentes de UI reutilizáveis (Botões, Inputs, Cards)
-│   ├── Button.js
-│   ├── Card.js
-│   └── Input.js
-├── navigation/             # Configuração do React Navigation
-│   └── AppNavigator.js
-├── screens/                # Telas principais do aplicativo
-│   ├── Home.js
-│   ├── Login.js
-│   ├── Register.js
-│   └── TripForm.js
-├── services/               # Lógica de integração com Firebase
-│   ├── AuthService.js
-│   ├── firebaseConfig.js
-│   ├── FirestoreService.js
-│   └── StorageService.js
-├── styles/                 # Estilos e temas globais
-│   ├── colors.js
-│   └── GlobalStyles.js
-├── utils/                  # Funções utilitárias e auxiliares
-│   └── helpers.js
-├── App.js                  # Componente raiz do aplicativo
-├── package.json            # Dependências e scripts do projeto
-├── README.md               # Este arquivo
-└── tsconfig.json
-```
-
 ## Tecnologias Utilizadas
 
 *   **React Native:** Framework para desenvolvimento de aplicativos móveis multiplataforma.
@@ -70,7 +36,7 @@ Certifique-se de ter o Node.js, npm (ou Yarn) e o Expo CLI instalados em sua má
 ### 1. Clonar o Repositório
 
 ```bash
-git clone https://github.com/seu-usuario/recorda-app.git # Substitua pelo seu repositório
+git clone https://github.com/Th3AI99la/recordaapp
 cd recorda-app
 ```
 
