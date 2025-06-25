@@ -3,14 +3,16 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, StyleSheet, FlatList, ActivityIndicator, Alert, RefreshControl } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { IconButton } from 'react-native-paper';
-import Card from '../components/Card';
-import Button from '../components/Button';
-import GlobalStyles from '../styles/GlobalStyles';
-import colors from '../styles/colors';
-import { getTripsByUserId, deleteTrip } from '../services/FirestoreService';
-import { auth } from '../services/firebaseConfig';
-import { logoutUser } from '../services/AuthService';
-import { formatDate } from '../utils/helpers';
+
+import Card from '../../components/Card';
+import Button from '../../components/Button';
+import GlobalStyles from '../../styles/GlobalStyles';
+import colors from '../../styles/colors';
+
+import { getTripsByUserId, deleteTrip } from '../../services/FirestoreService';
+import { auth } from '../../services/firebaseConfig';
+import { logoutUser } from '../../services/AuthService';
+import { formatDate } from '../../utils/helpers';
 
 const Home = ({ navigation }) => {
   const [trips, setTrips] = useState([]);

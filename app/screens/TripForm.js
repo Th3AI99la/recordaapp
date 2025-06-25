@@ -1,13 +1,16 @@
 // screens/TripForm.js
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, ScrollView, ActivityIndicator, Alert, Image, TouchableOpacity, Platform } from 'react-native';
-import Input from '../components/Input';
-import Button from '../components/Button';
-import GlobalStyles from '../styles/GlobalStyles';
-import colors from '../styles/colors';
-import { addTrip, updateTrip } from '../services/FirestoreService';
-import { uploadImage } from '../services/StorageService';
-import { auth } from '../services/firebaseConfig';
+
+import Input from '../../components/Input';
+import Button from '../../components/Button';
+import GlobalStyles from '../../styles/GlobalStyles';
+import colors from '../../styles/colors';
+
+import { addTrip, updateTrip } from '../../services/FirestoreService';
+import { uploadImage } from '../../services/StorageService';
+import { auth } from '../../services/firebaseConfig';
+
 import * as ImagePicker from 'expo-image-picker'; // Expo ImagePicker para selecionar imagens
 import DateTimePicker from '@react-native-community/datetimepicker';
 

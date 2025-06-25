@@ -6,12 +6,13 @@ import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
-  apiKey: "SUA_API_KEY",
-  authDomain: "SEU_AUTH_DOMAIN",
-  projectId: "SEU_PROJECT_ID",
-  storageBucket: "SEU_STORAGE_BUCKET",
-  messagingSenderId: "SEU_MESSAGING_SENDER_ID",
-  appId: "SEU_APP_ID"
+  apiKey: "AIzaSyCx446zCuLCEkctM9cc8Pp1fY3lg2v425c",
+  authDomain: "recordaapp-ab515.firebaseapp.com",
+  projectId: "recordaapp-ab515",
+  storageBucket: "recordaapp-ab515.firebasestorage.app",
+  messagingSenderId: "527758702637",
+  appId: "1:527758702637:web:9a25a37207141fb9f220a4",
+  measurementId: "G-WN60NS388X"
 };
 
 // Inicializa o Firebase

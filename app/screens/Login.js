@@ -1,11 +1,13 @@
 // screens/Login.js
 import React, { useState } from 'react';
 import { View, StyleSheet, Text, ActivityIndicator, Alert } from 'react-native';
-import Input from '../components/Input';
-import Button from '../components/Button';
-import GlobalStyles from '../styles/GlobalStyles';
-import colors from '../styles/colors';
-import { loginUser } from '../services/AuthService';
+
+import Input from '../../components/Input';
+import Button from '../../components/Button';
+import GlobalStyles from '../../styles/GlobalStyles';
+import colors from '../../styles/colors';
+
+import { loginUser } from '../../services/AuthService';
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
