@@ -3,10 +3,10 @@ import React, { useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { ActivityIndicator, View } from 'react-native';
-import LoginScreen from '../screens/Login';
-import RegisterScreen from '../screens/Register';
-import HomeScreen from '../screens/Home';
-import TripFormScreen from '../screens/TripForm';
+import LoginScreen from './screens/Login';
+import RegisterScreen from './screens/Register';
+import HomeScreen from './screens/Home';
+import TripFormScreen from './screens/TripForm';
 import { auth } from '../services/firebaseConfig';
 import colors from '../styles/colors';
 
