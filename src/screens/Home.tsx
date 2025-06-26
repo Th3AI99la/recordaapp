@@ -94,8 +94,8 @@ const HomeScreen = ({ navigation }: Props) => {
       </Card.Content>
       <Card.Actions style={styles.cardActions}>
         {/* CORREÇÃO APLICADA: Usando a prop 'title' em vez de children */}
-        <Button mode="text" title="Editar" onPress={() => navigation.navigate('TripForm', { trip: item })} />
-        <Button mode="text" title="Excluir" textColor={colors.error} onPress={() => handleDeleteTrip(item)} />
+        <Button mode="text" title="Editar" onPress={() => navigation.navigate('TripForm', { trip: item })} children={undefined} />
+        <Button mode="text" title="Excluir" textColor={colors.error} onPress={() => handleDeleteTrip(item)} children={undefined} />
       </Card.Actions>
     </Card>
   );
