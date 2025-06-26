@@ -1,16 +1,17 @@
-// src/services/firebaseConfig.ts
-import { initializeApp } from 'firebase/app';
+import { initializeApp, getApp, getApps } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 import { Platform } from 'react-native';
+
+// Importações do Auth para múltiplas plataformas
 import {
   initializeAuth,
-  getReactNativePersistence,
-  indexedDBLocalPersistence,
+  getReactNativePersistence, // Para o celular
+  indexedDBLocalPersistence, // Para a Web
 } from 'firebase/auth';
 import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
 
-// Your web app's Firebase configuration (COM AS SUAS NOVAS CREDENCIAIS)
+// Suas credenciais do Firebase para o projeto "recorda-app-v2"
 const firebaseConfig = {
   apiKey: "AIzaSyAokcULvK7ZJzIRr95GM_9khpk03ru9cG4",
   authDomain: "recorda-app-v2.firebaseapp.com",
@@ -20,17 +21,19 @@ const firebaseConfig = {
   appId: "1:9529945619:web:b6cedb0531349f060e59e6"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// --- Inicialização Robusta do Firebase ---
 
-// Initialize Auth with platform-specific persistence
+// Para evitar re-inicialização, verificamos se o app já existe
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+
+// Inicialização do Auth que funciona tanto no Celular quanto na Web
 const auth = initializeAuth(app, {
   persistence: Platform.OS === 'web'
-    ? indexedDBLocalPersistence
-    : getReactNativePersistence(ReactNativeAsyncStorage),
+    ? indexedDBLocalPersistence 
+    : getReactNativePersistence(ReactNativeAsyncStorage), 
 });
 
-// Initialize other services
+// Inicialização dos outros serviços
 const db = getFirestore(app);
 const storage = getStorage(app);
 

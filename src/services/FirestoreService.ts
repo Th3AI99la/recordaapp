@@ -10,7 +10,7 @@ import {
   DocumentData,
 } from 'firebase/firestore';
 import { db } from './firebaseConfig';
-import { Trip } from '../src/types'; 
+import { Trip } from '../types'; 
 
 const TRIPS_COLLECTION = 'trips';
 

@@ -3028,7 +3028,7 @@ find-up@^5.0.0:
 
 firebase@^11.9.1:
   version "11.9.1"
-  resolved "https://registry.npmjs.org/firebase/-/firebase-11.9.1.tgz"
+  resolved "https://registry.yarnpkg.com/firebase/-/firebase-11.9.1.tgz#687306923e570f99f9fb5abe40bfe162708bee1f"
   integrity sha512-nbQbQxNlkHHRDn4cYwHdAKHwJPeZ0jRXxlNp6PCOb9CQx8Dc6Vjve97R34r1EZJnzOsPYZ3+ssJH7fkovDjvCw==
   dependencies:
     "@firebase/ai" "1.4.0"
