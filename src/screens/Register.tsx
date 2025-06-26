@@ -47,14 +47,12 @@ const RegisterScreen = ({ navigation }: Props) => {
         title={loading ? "Cadastrando..." : "Cadastrar"}
         onPress={handleRegister}
         disabled={loading}
-        style={{ marginTop: 20 }}
-      />
+        style={{ marginTop: 20 }} children={undefined}      />
       <Button
         title="Voltar para o Login"
         mode="text"
         onPress={() => navigation.goBack()}
-        textColor={colors.primary}
-      />
+        textColor={colors.primary} children={undefined}      />
     </View>
   );
 };

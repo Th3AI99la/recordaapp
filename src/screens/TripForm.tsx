@@ -165,13 +165,13 @@ const TripFormScreen = ({ navigation, route }: Props) => {
             />
         )}
 
-        <Button title="Selecionar Imagem" onPress={pickImage} mode="outlined" style={styles.imageButton} />
+        <Button title="Selecionar Imagem" onPress={pickImage} mode="outlined" style={styles.imageButton} children={undefined} />
         {imageUri && <Image source={{ uri: imageUri }} style={styles.imagePreview} />}
 
         {loading ? (
             <ActivityIndicator size="large" color="#6200ee" style={styles.loadingIndicator} />
         ) : (
-            <Button title={editingTrip ? "Atualizar Viagem" : "Salvar Viagem"} onPress={handleSaveTrip} />
+            <Button title={editingTrip ? "Atualizar Viagem" : "Salvar Viagem"} onPress={handleSaveTrip} children={undefined} />
         )}
     </ScrollView>
   );

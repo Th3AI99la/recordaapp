@@ -35,9 +35,9 @@ const LoginScreen = ({ navigation }: Props) => {
       {loading ? (
         <ActivityIndicator size="large" color={colors.primary} />
       ) : (
-        <Button title="Entrar" onPress={handleLogin} />
+        <Button title="Entrar" onPress={handleLogin} children={undefined} />
       )}
-      <Button title="Não tem uma conta? Cadastre-se" mode="text" onPress={() => navigation.navigate('Register')} />
+      <Button title="Não tem uma conta? Cadastre-se" mode="text" onPress={() => navigation.navigate('Register')} children={undefined} />
     </View>
   );
 };
