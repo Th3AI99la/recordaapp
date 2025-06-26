@@ -117,12 +117,11 @@ const HomeScreen = ({ navigation }: Props) => {
         <IconButton icon="logout" iconColor={colors.primary} size={28} onPress={handleLogout} />
       </View>
         <Button
-            title="Registrar Nova Viagem"
-            onPress={() => navigation.navigate('TripForm', {})}
-            icon="plus"
-            mode="contained"
-            style={styles.addButton}
-        />
+        title="Registrar Nova Viagem"
+        onPress={() => navigation.navigate('TripForm', {})}
+        icon="plus"
+        mode="contained"
+        style={styles.addButton} children={undefined}        />
 
       {loading ? (
         <ActivityIndicator size="large" color={colors.primary} style={{ marginTop: 50 }} />
