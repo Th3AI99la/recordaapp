@@ -7,7 +7,7 @@ import { getStorage } from 'firebase/storage';
 // Importações do Auth específicas para a Web
 import {
   initializeAuth,
-  indexedDBLocalPersistence, // Usamos apenas o armazenamento do navegador
+  indexedDBLocalPersistence, 
 } from 'firebase/auth';
 
 // Suas credenciais do Firebase para o projeto "recorda-app-v2"
@@ -22,7 +22,6 @@ const firebaseConfig = {
 
 // --- Inicialização Robusta do Firebase ---
 
-// Para evitar re-inicialização, verificamos se o app já existe
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 
 // Inicialização do Auth para a Web
