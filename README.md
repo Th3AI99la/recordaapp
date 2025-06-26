@@ -29,29 +29,3 @@ cd RecordaAppTS
 
 # Instale as dependências
 npm install
-
-3. Configurar o Firebase
-Crie um projeto no Firebase.
-
-Ative os serviços:
-
-Authentication
-
-Firestore Database
-
-Copie as credenciais de configuração da Web.
-
-Cole no arquivo src/services/firebaseConfig.ts, substituindo o conteúdo padrão pelas suas credenciais.
-
-
-4. Rodar o Aplicativo
-bash
-Copiar
-Editar
-# Para a versão web
-npx expo start --web
-
-# Para executar no celular (emulador ou dispositivo real)
-npx expo run:android
-# ou
-npx expo run:ios
