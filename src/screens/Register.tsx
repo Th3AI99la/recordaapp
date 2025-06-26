@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, ActivityIndicator, Alert } from 'react-native';
+import { View, Text, ActivityIndicator, Alert, StyleSheet } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '../types';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import GlobalStyles from '../styles/GlobalStyles';
 import { registerUser } from '../services/AuthService';
+import colors from '../styles/colors';
 
 type Props = StackScreenProps<RootStackParamList, 'Register'>;
 
@@ -16,6 +17,10 @@ const RegisterScreen = ({ navigation }: Props) => {
   const [loading, setLoading] = useState(false);
 
   const handleRegister = async () => {
+    if (!email || !password || !confirmPassword) {
+        Alert.alert("Erro", "Por favor, preencha todos os campos.");
+        return;
+    }
     if (password !== confirmPassword) {
       Alert.alert("Erro", "As senhas não coincidem!");
       return;
@@ -23,28 +28,52 @@ const RegisterScreen = ({ navigation }: Props) => {
     setLoading(true);
     try {
       await registerUser(email, password);
-      // O AppNavigator irá lidar com a mudança de tela
     } catch (error: any) {
-      Alert.alert("Erro de Cadastro", error.message);
+      Alert.alert("Erro de Cadastro", error.message || "Não foi possível criar a conta.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <View style={GlobalStyles.container}>
-      <Text style={GlobalStyles.title}>Crie sua conta no Recorda</Text>
+    <View style={GlobalStyles.formContainer}>
+      <Text style={styles.title}>Crie sua conta</Text>
+      <Text style={styles.subtitle}>É rápido e fácil.</Text>
       <Input label="Email" value={email} onChangeText={setEmail} keyboardType="email-address" autoCapitalize="none" />
       <Input label="Senha" value={password} onChangeText={setPassword} secureTextEntry />
       <Input label="Confirmar Senha" value={confirmPassword} onChangeText={setConfirmPassword} secureTextEntry />
-      {loading ? (
-        <ActivityIndicator size="large" />
-      ) : (
-        <Button title="Cadastrar" onPress={handleRegister} />
-      )}
-      <Button title="Já tem uma conta? Faça Login" mode="text" onPress={() => navigation.navigate('Login')} />
+      
+      <Button
+        title={loading ? "Cadastrando..." : "Cadastrar"}
+        onPress={handleRegister}
+        disabled={loading}
+        style={{ marginTop: 20 }}
+      />
+      <Button
+        title="Voltar para o Login"
+        mode="text"
+        onPress={() => navigation.goBack()}
+        textColor={colors.primary}
+      />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+    title: {
+        fontSize: 32,
+        fontWeight: 'bold',
+        color: colors.textPrimary,
+        marginBottom: 8,
+        textAlign: 'center',
+    },
+    subtitle: {
+        fontSize: 16,
+        color: colors.textSecondary,
+        marginBottom: 32,
+        textAlign: 'center',
+    },
+});
+
 
 export default RegisterScreen;
