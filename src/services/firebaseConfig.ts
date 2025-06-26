@@ -3,12 +3,15 @@
 import { initializeApp, getApp, getApps } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
+import { Platform } from 'react-native';
 
-// Importações do Auth específicas para a Web
+// Importações do Auth para múltiplas plataformas
 import {
   initializeAuth,
-  indexedDBLocalPersistence, 
+  getReactNativePersistence, // Para o celular
+  indexedDBLocalPersistence, // Para a Web
 } from 'firebase/auth';
+import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
 
 // Suas credenciais do Firebase para o projeto "recorda-app-v2"
 const firebaseConfig = {
@@ -22,11 +25,14 @@ const firebaseConfig = {
 
 // --- Inicialização Robusta do Firebase ---
 
+// Para evitar re-inicialização, verificamos se o app já existe
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 
-// Inicialização do Auth para a Web
+// Inicialização do Auth que funciona tanto no Celular quanto na Web
 const auth = initializeAuth(app, {
-  persistence: indexedDBLocalPersistence,
+  persistence: Platform.OS === 'web'
+    ? indexedDBLocalPersistence // Usa o armazenamento do navegador se for web
+    : getReactNativePersistence(ReactNativeAsyncStorage), // Usa o AsyncStorage se for nativo
 });
 
 // Inicialização dos outros serviços
